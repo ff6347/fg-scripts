@@ -67,6 +67,9 @@ var main = function() {
 
   var doc = app.activeDocument;
 
+  var curr_origin = doc.viewPreferences.rulerOrigin;
+  doc.viewPreferences.rulerOrigin = RulerOrigin.PAGE_ORIGIN;
+
 
   if (doc.selection.length > 0) {
     if(doc.selection[0] instanceof TextFrame){
@@ -80,6 +83,8 @@ var main = function() {
 
     alert("Please select a textFrames");
   }
+  // reset to default
+doc.viewPreferences.rulerOrigin = curr_origin;
 
     }
 };
